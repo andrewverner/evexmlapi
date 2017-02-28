@@ -30,7 +30,7 @@ class ChatChannel
         $this->ownerName        = strval($row['ownerName']);
         $this->displayName      = strval($row['displayName']);
         $this->comparisonKey    = strval($row['comparisonKey']);
-        $this->hasPassword      = boolval($row['hasPassword']);
+        $this->hasPassword      = (strval($row['hasPassword']) == 'True');
         $this->motd             = strval($row['motd']);
 
         foreach ($row->rowset as $rowset) {

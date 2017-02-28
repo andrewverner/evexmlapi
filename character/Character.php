@@ -20,6 +20,7 @@ use EveXMLAPI\Core\Key;
  * @method bookmarks(\Sorter $sorter = null)
  * @method sheet()
  * @method chats()
+ * @method contacts()
  */
 
 class Character
@@ -69,6 +70,10 @@ class Character
 
             case 'chats':
                 return new ChatChannels($this->key);
+                break;
+
+            case 'contacts':
+                return new ContactList($this->key);
                 break;
 
             default:
