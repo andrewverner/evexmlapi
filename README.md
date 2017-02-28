@@ -64,8 +64,8 @@ Returns a balance of the character
 | --- | --- | --- | --- |
 | balance | Character balance | Integer | `$balanceInstance->balance` |
 
-If you want to get a formatted string like `25 180 000.60 ISK`, than you can do `echo $balance`. `AccountBalance`
-class has a `__toString()` magic method.
+If you want to get a formatted string like `25 180 000.60 ISK`, than you can do `echo $balanceInstance`.
+`AccountBalance` class has a `__toString()` magic method.
 
 #####Character::assets([Sorter $sorter = null]): array
 
@@ -93,3 +93,23 @@ foreach ($assets as $locationID => $assetList) {
 ```
 
 In that case, you'll get an array `$locationID => $assetList`, where `$assesList` is an array `$index => $asset`.
+
+#####Character::blueprints([Sorter $sorter = null]): array
+
+Returns an array of blueprints owned by a character. See `BlueprintType` description.
+
+```
+$blueprints = $character->blueprints();
+//or, if you want to get an array, that sorted by locationID
+$blueprints = $character->blueprints(new LocationSorter());
+```
+
+#####Character::bookmarks([Sorter $sorter = null]): array
+
+Returns an array of character bookmarks. See `BookmarkType` description.
+
+```
+$bookamrks = $character->bookmarks();
+//or, if you want to get an array, that sorted by locationID
+$bookamrks = $character->bookmarks(new LocationSorter());
+```
