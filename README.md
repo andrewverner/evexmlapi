@@ -164,3 +164,17 @@ Return common character information
 Returns an array of characters chat channels. See `ChatChannel` description.
 
 `$chats = $character->chats()`
+
+####Character::contacts(): ContactList
+
+Returns characters contact list
+
+`$chats = $character->contacts()`
+
+| variable  | description | type |
+| --- | --- | --- |
+| contactList | Personal contact list | Array |
+| corporateContactList | Corporation contact list | Array |
+| allianceContactList | Alliance contact list | Array |
+
+See `ContactType` description.
