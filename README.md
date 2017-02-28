@@ -14,7 +14,7 @@ Create an account object
 
 Example: `$account = $api->account(5421517,'H8dHemz5P1yQJZLTiyiFzJTAs71MvoY9jm2DmIU0d7ABrttO9vBpF3Qv5Drf4N0');`
 
-#####Account::status(): AccountStatus
+####Account::status(): AccountStatus
 
 `$status = $account->status();`
 
@@ -27,7 +27,7 @@ Returns an information about user account:
 | logonCount | Logon count | Integer | `$status->logonCount` |
 | logonMinutes | Logon minutes | Integer | `$status->logonCount` |
 
-#####Account::keyInfo(): APIKeyInfo
+####Account::keyInfo(): APIKeyInfo
 
 `$info = $account->keyInfo();`
 
@@ -38,7 +38,7 @@ Returns an information about API key:
 | accessMask | Access mask of the key | Integer | `$info->assessMask` |
 | expires | Expiration date | DateTime | `$info->expires->format('Y-m-d H:i:s')` |
 
-#####Account::characters(): array
+####Account::characters(): array
 
 `$characters = $account->characters();`
 
@@ -54,7 +54,7 @@ If you have an ID of a character, than you can create a `Character` instance dir
 Example:
 `$character = $api->character(5421517,'H8dHemz5P1yQJZLTiyiFzJTAs71MvoY9jm2DmIU0d7ABrttO9vBpF3Qv5Drf4N0', 782653746);`
 
-#####Character::balance(): AccountBalance
+####Character::balance(): AccountBalance
 
 Returns a balance of the character
 
@@ -67,7 +67,7 @@ Returns a balance of the character
 If you want to get a formatted string like `25 180 000.60 ISK`, than you can do `echo $balanceInstance`.
 `AccountBalance` class has a `__toString()` magic method.
 
-#####Character::assets([Sorter $sorter = null]): array
+####Character::assets([Sorter $sorter = null]): array
 
 Returns a character assets array. See `AssetType` description.
 
@@ -94,7 +94,7 @@ foreach ($assets as $locationID => $assetList) {
 
 In that case, you'll get an array `$locationID => $assetList`, where `$assesList` is an array `$index => $asset`.
 
-#####Character::blueprints([Sorter $sorter = null]): array
+####Character::blueprints([Sorter $sorter = null]): array
 
 Returns an array of blueprints owned by a character. See `BlueprintType` description.
 
@@ -104,7 +104,7 @@ $blueprints = $character->blueprints();
 $blueprints = $character->blueprints(new LocationSorter());
 ```
 
-#####Character::bookmarks([Sorter $sorter = null]): array
+####Character::bookmarks([Sorter $sorter = null]): array
 
 Returns an array of character bookmarks. See `BookmarkType` description.
 
@@ -114,7 +114,7 @@ $bookamrks = $character->bookmarks();
 $bookamrks = $character->bookmarks(new LocationSorter());
 ```
 
-#####Character::sheet(): Sheet
+####Character::sheet(): Sheet
 
 Return common character information
 
