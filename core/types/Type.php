@@ -24,7 +24,7 @@ class Type
     {
         switch ($filter) {
             case 'date':
-                return new DateTime($value);
+                return new \DateTime($value);
                 break;
 
             default:

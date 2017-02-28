@@ -19,6 +19,7 @@ use EveXMLAPI\Core\Key;
  * @method blueprints(\Sorter $sorter = null)
  * @method bookmarks(\Sorter $sorter = null)
  * @method sheet()
+ * @method chats()
  */
 
 class Character
@@ -64,6 +65,10 @@ class Character
 
             case 'sheet':
                 return new Sheet($this->key);
+                break;
+
+            case 'chats':
+                return new ChatChannels($this->key);
                 break;
 
             default:

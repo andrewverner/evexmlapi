@@ -158,3 +158,9 @@ Return common character information
 | corporationRolesAtBase | Characters corporation base roles (see `RoleType` description) | Array |
 | corporationRolesAtOther | Characters other corporation roles (see `RoleType` description) | Array |
 | corporationTitles | Characters corporation titles (see `TitleType` description) | Array |
+
+####Character::chats(): array
+
+Returns an array of characters chat channels. See `ChatChannel` description.
+
+`$chats = $character->chats()`
