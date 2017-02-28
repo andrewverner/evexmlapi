@@ -10,6 +10,7 @@ namespace EveXMLAPI\Character;
 
 use EveXMLAPI\Core\Key;
 use EveXMLAPI\Core\Request;
+use EveXMLAPI\Types\AssetType;
 
 class AssetList extends Request
 {
@@ -26,7 +27,7 @@ class AssetList extends Request
     public function parse($xml)
     {
         foreach ($xml->rowset->row as $asset) {
-            $type = new \AssetType([
+            $type = new AssetType([
                 'itemID'        => intval($asset['itemID']),
                 'locationID'    => intval($asset['locationID']),
                 'typeID'        => intval($asset['typeID']),
@@ -39,7 +40,7 @@ class AssetList extends Request
             if (isset($asset->rowset)) {
                 $type->nested = [];
                 foreach ($asset->rowset->row as $nested) {
-                    $type->nested[] = new \AssetType([
+                    $type->nested[] = new AssetType([
                         'itemID'        => intval($nested['itemID']),
                         'locationID'    => intval($nested['locationID']),
                         'typeID'        => intval($nested['typeID']),

@@ -18,6 +18,7 @@ use EveXMLAPI\Core\Key;
  * @method assets(\Sorter $sorter = null)
  * @method blueprints(\Sorter $sorter = null)
  * @method bookmarks(\Sorter $sorter = null)
+ * @method sheet()
  */
 
 class Character
@@ -59,6 +60,10 @@ class Character
 
             case 'bookmarks':
                 return (new Bookmarks($this->key, $arguments[0] ?: null))->list;
+                break;
+
+            case 'sheet':
+                return new Sheet($this->key);
                 break;
 
             default:

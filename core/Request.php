@@ -39,5 +39,10 @@ abstract class Request
         }
     }
 
+    public function __get($name)
+    {
+        // TODO: Implement __get() method.
+    }
+
     abstract function parse($xml);
 }

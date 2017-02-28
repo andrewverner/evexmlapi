@@ -12,9 +12,6 @@ class LocationSorter implements Sorter
     {
         $data = [];
 
-        /**
-         * @var $asset AssetType
-         */
         foreach ($items as $item) {
             if (!isset($data[$item->locationID])) $data[$item->locationID] = [];
             $data[$item->locationID][] = $item;

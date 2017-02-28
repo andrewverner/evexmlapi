@@ -17,4 +17,6 @@
  * @property $itemID;
  */
 
+namespace EveXMLAPI\Types;
+
 class BlueprintType extends Type {}

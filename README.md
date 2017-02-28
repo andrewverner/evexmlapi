@@ -113,3 +113,48 @@ $bookamrks = $character->bookmarks();
 //or, if you want to get an array, that sorted by locationID
 $bookamrks = $character->bookmarks(new LocationSorter());
 ```
+
+#####Character::sheet(): Sheet
+
+Return common character information
+
+`$sheet = $character->sheet();`
+
+| variable  | description | type | usage |
+| --- | --- | --- | --- |
+| name | Character name | String | `$sheet->name` |
+| homeStationID | ID for station where clone will spawn on demise | Integer | `$sheet->homeStationID` |
+| DoB | Date character was created | DateTime | `$sheet->DoB->format('Y-m-d H:i:s')` |
+| race | Characters race | String | `$sheet->race` |
+| bloodLineID | ID for characters bloodline | Integer | `$sheet->bloodLineID` |
+| bloodLine | Characters bloodline | String | `$sheet->bloodLine` |
+| ancestryID | ID for characters ancestry | Integer | `$sheet->ancestryID` |
+| ancestry | Characters ancestry | String | `$sheet->ancestry` |
+| gender | Characters gender | String | `$sheet->gender` |
+| corporationName | Characters corporation | String | `$sheet->corporationName` |
+| corporationID | ID for characters corporation | Integer | `$sheet->corporationID` |
+| allianceName | Characters alliance | String | `$sheet->allianceName` |
+| allianceID | ID for characters alliance | Integer | `$sheet->allianceID` |
+| freeSkillPoints | Skillpoints available to be assigned | Integer | `$sheet->freeSkillPoints` |
+| freeRespecs | Number of available character attribute respecs | Integer | `$sheet->freeRespecs` |
+| cloneJumpDate | Characters last clone jump | DateTime | `$sheet->cloneJumpDate->format('Y-m-d H:i:s')` |
+| lastRespecDate | Characters last character attribute respec | DateTime | `$sheet->lastRespecDate->format('Y-m-d H:i:s')` |
+| lastTimedRespec | Characters last character attribute respec (Using respec accrued over time (1 year)) | DateTime | `$sheet->lastTimedRespec->format('Y-m-d H:i:s')` |
+| remoteStationDate | Characters last change of home station remotely | DateTime | `$sheet->remoteStationDate->format('Y-m-d H:i:s')` |
+| jumpActivation | Characters last capital jump activation | DateTime | `$sheet->jumpActivation->format('Y-m-d H:i:s')` |
+| jumpFatigue | Characters jump fatigue expiry | DateTime | `$sheet->jumpFatigue->format('Y-m-d H:i:s')` |
+| jumpLastUpdate | Characters last jump update | DateTime | `$sheet->jumpLastUpdate	->format('Y-m-d H:i:s')` |
+| balance | Characters wallet balance | Float | `$sheet->balance` |
+| attributes | Characters attributes | stdObject | `$sheet->attributes` |
+| attributes->intelligence | Characters intelligence attribute | Integer | `$sheet->attributes->intelligence` |
+| attributes->memory | Characters memory attribute | Integer | `$sheet->attributes->memory` |
+| attributes->charisma | Characters charisma attribute | Integer | `$sheet->attributes->charisma` |
+| attributes->perception | Characters perception attribute | Integer | `$sheet->attributes->perception` |
+| attributes->willpower | Characters willpower attribute | Integer | `$sheet->attributes->willpower` |
+| jumpClones | Characters jump clones | Array | **not implemented yet** |
+| implants | Characters implants (see `ImplantType` description) | Array | `$sheet->implants` |
+| corporationRoles | Characters corporation roles (see `RoleType` description) | Array | `$sheet->corporationRoles` |
+| corporationRolesAtHQ | Characters corporation HQ roles (see `RoleType` description) | Array | `$sheet->corporationRolesAtHQ` |
+| corporationRolesAtBase | Characters corporation base roles (see `RoleType` description) | Array | `$sheet->corporationRolesAtBase` |
+| corporationRolesAtOther | Characters other corporation roles (see `RoleType` description) | Array | `$sheet->corporationRolesAtOther` |
+| corporationTitles | Characters corporation titles (see `TitleType` description) | Array | `$sheet->corporationTitles` |

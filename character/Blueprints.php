@@ -10,6 +10,7 @@ namespace EveXMLAPI\Character;
 
 use EveXMLAPI\Core\Key;
 use EveXMLAPI\Core\Request;
+use EveXMLAPI\Types\BlueprintType;
 
 class Blueprints extends Request
 {
@@ -27,7 +28,7 @@ class Blueprints extends Request
     {
         if (!empty($xml->rowset)) {
             foreach ($xml->rowset->row as $blueprint) {
-                $this->list[] = new \BlueprintType([
+                $this->list[] = new BlueprintType([
                     'runs'                  => intval($blueprint['$runs']),
                     'materialEfficiency'    => intval($blueprint['materialEfficiency']),
                     'timeEfficiency'        => intval($blueprint['timeEfficiency']),

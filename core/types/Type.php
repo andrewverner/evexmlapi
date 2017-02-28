@@ -6,6 +6,8 @@
  * Time: 16:00
  */
 
+namespace EveXMLAPI\Types;
+
 class Type
 {
     public function __construct(array $data = [], $behaviour = [])

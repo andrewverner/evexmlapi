@@ -10,6 +10,7 @@ namespace EveXMLAPI\Character;
 
 use EveXMLAPI\Core\Key;
 use EveXMLAPI\Core\Request;
+use EveXMLAPI\Types\BookmarkType;
 
 class Bookmarks extends Request
 {
@@ -29,7 +30,7 @@ class Bookmarks extends Request
             foreach ($xml->rowset->row as $folder) {
                 if (!empty($folder->rowset)) {
                     foreach ($folder->rowset->row as $bookmark) {
-                        $this->list[] = new \BookmarkType([
+                        $this->list[] = new BookmarkType([
                             'bookmarkID'    => intval($bookmark['bookmarkID']),
                             'creatorID'     => intval($bookmark['creatorID']),
                             'created'       => strval($bookmark['created']),

@@ -19,4 +19,6 @@
  * @property $z
  */
 
+namespace EveXMLAPI\Types;
+
 class BookmarkType extends Type {}

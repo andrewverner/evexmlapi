@@ -15,4 +15,6 @@
  * @property $nested;
  */
 
+namespace EveXMLAPI\Types;
+
 class AssetType extends Type {}
