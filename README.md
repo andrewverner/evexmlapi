@@ -146,11 +146,11 @@ Return common character information
 | jumpLastUpdate | Characters last jump update | DateTime | `$sheet->jumpLastUpdate	->format('Y-m-d H:i:s')` |
 | balance | Characters wallet balance | Float | `$sheet->balance` |
 | attributes | Characters attributes | stdObject | `$sheet->attributes` |
-| attributes->intelligence | Characters intelligence attribute | Integer | `$sheet->attributes->intelligence` |
-| attributes->memory | Characters memory attribute | Integer | `$sheet->attributes->memory` |
-| attributes->charisma | Characters charisma attribute | Integer | `$sheet->attributes->charisma` |
-| attributes->perception | Characters perception attribute | Integer | `$sheet->attributes->perception` |
-| attributes->willpower | Characters willpower attribute | Integer | `$sheet->attributes->willpower` |
+| **attributes**->intelligence | Characters intelligence attribute | Integer | `$sheet->attributes->intelligence` |
+| **attributes**->memory | Characters memory attribute | Integer | `$sheet->attributes->memory` |
+| **attributes**->charisma | Characters charisma attribute | Integer | `$sheet->attributes->charisma` |
+| **attributes**->perception | Characters perception attribute | Integer | `$sheet->attributes->perception` |
+| **attributes**->willpower | Characters willpower attribute | Integer | `$sheet->attributes->willpower` |
 | jumpClones | Characters jump clones | Array | **not implemented yet** |
 | implants | Characters implants (see `ImplantType` description) | Array | `$sheet->implants` |
 | corporationRoles | Characters corporation roles (see `RoleType` description) | Array | `$sheet->corporationRoles` |
