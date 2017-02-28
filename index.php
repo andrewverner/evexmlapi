@@ -32,4 +32,4 @@ $character = $api->character(3782616, 'ZU78sX2nA41yQJZLTiyiFzJTAs71MvoY9jm2DmIU0
 //print_r($character->assets(new LocationSorter()));
 //print_r($character->blueprints(new LocationSorter()));
 //print_r($character->bookmarks(new LocationSorter()));
-print_r($character->sheet());
+//print_r($character->sheet());
