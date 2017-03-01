@@ -127,7 +127,7 @@ foreach ($assets as $locationID => $assetList) {
 
 In that case, you'll get an array `$locationID => $assetList`, where `$assesList` is an array `$index => $asset`.
 
-**`AssetType` instance**
+**`AssetType`**
 
 | property | type | description |
 | --- | --- | --- |
