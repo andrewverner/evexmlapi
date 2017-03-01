@@ -174,9 +174,10 @@ $bookamrks = $character->bookmarks();
 $bookamrks = $character->bookmarks(new LocationSorter());
 ```
 
-| | **`BookmarkType`** | |
-| --- | --- | --- |
+**`BookmarkType`**
+
 | property | type | description |
+| --- | --- | --- |
 | bookmarkID | Integer | Unique bookmark ID |
 | creatorID | Integer | Bookmark creator ID. Can be character or corporation ID |
 | created | DateTime | Date and time when bookmark was created |
