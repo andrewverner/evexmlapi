@@ -38,6 +38,7 @@ use EveXMLAPI\Core\Key;
  * @method skills()
  * @method standings()
  * @method walletJournal()
+ * @method walletTransactions()
  */
 
 class Character
