@@ -30,21 +30,14 @@ class Bookmarks extends Request
             foreach ($xml->rowset->row as $folder) {
                 if (!empty($folder->rowset)) {
                     foreach ($folder->rowset->row as $bookmark) {
-                        $this->list[] = new BookmarkType([
-                            'bookmarkID'    => intval($bookmark['bookmarkID']),
-                            'creatorID'     => intval($bookmark['creatorID']),
-                            'created'       => strval($bookmark['created']),
-                            'itemID'        => intval($bookmark['itemID']),
-                            'typeID'        => intval($bookmark['typeID']),
-                            'locationID'    => intval($bookmark['locationID']),
-                            'memo'          => strval($bookmark['memo']),
-                            'note'          => strval($bookmark['note']),
-                            'x'             => intval($bookmark['x']),
-                            'y'             => intval($bookmark['y']),
-                            'z'             => intval($bookmark['z'])
-                        ], [
-                            'created' => 'date'
-                        ]);
+                        $this->list[] = new BookmarkType(
+                            $bookmark,
+                            [
+                                'bookmarkID, creatorID, itemID, typeID, locationID, x, y, z' => 'int',
+                                'created' => 'date',
+                                'memo, note' => 'str'
+                            ]
+                        );
                     }
                 }
             }

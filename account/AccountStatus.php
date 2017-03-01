@@ -8,7 +8,6 @@
 
 namespace EveXMLAPI\Account;
 
-use EveXMLAPI\Core\Key;
 use EveXMLAPI\Core\Request;
 
 class AccountStatus extends Request

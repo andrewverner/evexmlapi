@@ -178,3 +178,4 @@ Returns characters contact list
 | allianceContactList | Alliance contact list | Array |
 
 See `ContactType` description.
+

@@ -28,17 +28,13 @@ class Blueprints extends Request
     {
         if (!empty($xml->rowset)) {
             foreach ($xml->rowset->row as $blueprint) {
-                $this->list[] = new BlueprintType([
-                    'runs'                  => intval($blueprint['$runs']),
-                    'materialEfficiency'    => intval($blueprint['materialEfficiency']),
-                    'timeEfficiency'        => intval($blueprint['timeEfficiency']),
-                    'quantity'              => intval($blueprint['quantity']),
-                    'flagID'                => intval($blueprint['flagID']),
-                    'typeName'              => strval($blueprint['typeName']),
-                    'typeID'                => intval($blueprint['typeID']),
-                    'locationID'            => intval($blueprint['locationID']),
-                    'itemID'                => intval($blueprint['itemID'])
-                ]);
+                $this->list[] = new BlueprintType(
+                    $blueprint,
+                    [
+                        'runs, materialEfficiency, timeEfficiency, quantity, flagID, typeID, locationID, itemID' => 'int',
+                        'typeName' => 'str'
+                    ]
+                );
             }
         }
 

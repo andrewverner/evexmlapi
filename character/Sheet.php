@@ -102,22 +102,20 @@ class Sheet extends Request
                     case 'implants':
                         $this->implants = [];
                         foreach ($rowset->row as $implant) {
-                            $this->implants[] = new Type([
-                                'typeID'    => intval($implant['typeID']),
-                                'name'      => strval($implant['name'])
-                            ]);
+                            $this->implants[] = new Type(
+                                $implant,
+                                ['typeID' => 'int', 'name' => 'str']
+                            );
                         }
                         break;
 
                     case 'skills':
                         $this->skills = [];
                         foreach ($rowset->row as $skill) {
-                            $this->skills[] = new SkillType([
-                                'typeID'        => intval($skill['typeID']),
-                                'published'     => intval($skill['published']),
-                                'level'         => intval($skill['level']),
-                                'skillpoints'   => intval($skill['skillpoints']),
-                            ]);
+                            $this->skills[] = new SkillType(
+                                $skill,
+                                ['typeID, published, level, skillpoints' => 'int']
+                            );
                         }
                         break;
 
@@ -127,20 +125,20 @@ class Sheet extends Request
                     case 'corporationRolesAtOther':
                         $this->{$rowset['name']} = [];
                         foreach ($rowset->row as $role) {
-                            $this->{$rowset['name']}[] = new Type([
-                                'roleID' => intval($role['roleID']),
-                                'roleName' => strval($role['roleName'])
-                            ]);
+                            $this->{$rowset['name']}[] = new Type(
+                                $role,
+                                ['roleID' => 'int', 'roleName' => 'str']
+                            );
                         }
                         break;
 
                     case 'corporationTitles':
                         $this->corporationTitles = [];
                         foreach ($rowset->row as $title) {
-                            $this->corporationTitles[] = new Type([
-                                'titleID' => intval($title['titleID']),
-                                'titleName' => strval($title['titleName'])
-                            ]);
+                            $this->corporationTitles[] = new Type(
+                                $title,
+                                ['titleID' => 'int', 'titleName' => 'str']
+                            );
                         }
                         break;
 

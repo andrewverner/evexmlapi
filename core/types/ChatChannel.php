@@ -38,24 +38,20 @@ class ChatChannel
                 case 'allowed':
                 case 'operators':
                     foreach ($rowset->row as $accessor) {
-                        $this->{$rowset['name']}[] = new AccessorType([
-                            'accessorID'    => intval($accessor['accessorID']),
-                            'accessorName'  => strval($accessor['accessorName'])
-                        ]);
+                        $this->{$rowset['name']}[] = new AccessorType(
+                            $accessor,
+                            ['accessorID' => 'int', 'accessorName' => 'str']
+                        );
                     }
                     break;
 
                 case 'blocked':
                 case 'muted':
                     foreach ($rowset->row as $accessor) {
-                        $this->{$rowset['name']}[] = new AccessorType([
-                            'accessorID'    => intval($accessor['accessorID']),
-                            'accessorName'  => strval($accessor['accessorName']),
-                            'untilWhen'     => strval($accessor['untilWhen']),
-                            'reason'        => strval($accessor['reason'])
-                        ], [
-                            'untilWhen' => 'date'
-                        ]);
+                        $this->{$rowset['name']}[] = new AccessorType(
+                            $accessor,
+                            ['accessorID' => 'int', 'accessorName, reason' => 'str', 'untilWhen' => 'date']
+                        );
                     }
                     break;
 

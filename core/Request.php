@@ -16,7 +16,14 @@ abstract class Request
     public function __construct(Key $key = null)
     {
         $this->key = $key;
-        $this->send($this->url, $key);
+
+        if (method_exists($this, 'simulate') && $this instanceof Simulatable) {
+            $result = $this->simulate();
+            $xml = new \SimpleXMLElement($result);
+            return $this->parse($xml->result);
+        }
+        else
+            $this->send($this->url, $key);
     }
 
     final private function send($url, Key $key = null)

@@ -27,28 +27,18 @@ class AssetList extends Request
     public function parse($xml)
     {
         foreach ($xml->rowset->row as $asset) {
-            $type = new AssetType([
-                'itemID'        => intval($asset['itemID']),
-                'locationID'    => intval($asset['locationID']),
-                'typeID'        => intval($asset['typeID']),
-                'quantity'      => intval($asset['quantity']),
-                'flag'          => intval($asset['flag']),
-                'singleton'     => boolval($asset['singleton']),
-                'rawQuantity'   => intval($asset['rawQuantity'])
-            ]);
+            $type = new AssetType(
+                $asset,
+                ['itemID, locationID, typeID, quantity, flag, singleton, rawQuantity' => 'int']
+            );
 
             if (isset($asset->rowset)) {
                 $type->nested = [];
                 foreach ($asset->rowset->row as $nested) {
-                    $type->nested[] = new AssetType([
-                        'itemID'        => intval($nested['itemID']),
-                        'locationID'    => intval($nested['locationID']),
-                        'typeID'        => intval($nested['typeID']),
-                        'quantity'      => intval($nested['quantity']),
-                        'flag'          => intval($nested['flag']),
-                        'singleton'     => boolval($nested['singleton']),
-                        'rawQuantity'   => intval($nested['rawQuantity'])
-                    ]);
+                    $type->nested[] = new AssetType(
+                        $nested,
+                        ['itemID, locationID, typeID, quantity, flag, singleton, rawQuantity' => 'int']
+                    );
                 }
             }
 

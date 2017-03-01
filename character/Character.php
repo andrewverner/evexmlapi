@@ -21,6 +21,10 @@ use EveXMLAPI\Core\Key;
  * @method sheet()
  * @method chats()
  * @method contacts()
+ * @method contracts()
+ * @method facWarStats()
+ * @method industryJobs()
+ * @method industryJobsHistory()
  */
 
 class Character
@@ -53,15 +57,15 @@ class Character
                 break;
 
             case 'assets':
-                return (new AssetList($this->key, $arguments[0] ?: null))->list;
+                return (new AssetList($this->key, isset($arguments[0]) ? $arguments[0] : null))->list;
                 break;
 
             case 'blueprints':
-                return (new Blueprints($this->key, $arguments[0] ?: null))->list;
+                return (new Blueprints($this->key, isset($arguments[0]) ? $arguments[0] : null))->list;
                 break;
 
             case 'bookmarks':
-                return (new Bookmarks($this->key, $arguments[0] ?: null))->list;
+                return (new Bookmarks($this->key, isset($arguments[0]) ? $arguments[0] : null))->list;
                 break;
 
             case 'sheet':
@@ -74,6 +78,22 @@ class Character
 
             case 'contacts':
                 return new ContactList($this->key);
+                break;
+
+            case 'contracts':
+                return (new Contracts($this->key))->contracts;
+                break;
+
+            case 'facWarStats':
+                return new FacWarStats($this->key);
+                break;
+
+            case 'industryJobs':
+                return (new IndustryJobs($this->key))->list;
+                break;
+
+            case 'industryJobsHistory':
+                return (new IndustryJobsHistory($this->key))->list;
                 break;
 
             default:

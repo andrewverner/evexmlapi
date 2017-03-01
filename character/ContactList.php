@@ -26,15 +26,14 @@ class ContactList extends Request
                 case 'corporateContactList':
                 case 'allianceContactList':
                     foreach ($rowset->row as $contact) {
-                        $this->{$rowset['name']}[] = new ContactType([
-                            'contactID' => intval($contact['contactID']),
-                            'contactName' => strval($contact['contactName']),
-                            'standing' => intval($contact['standing']),
-                            'contactTypeID' => intval($contact['contactTypeID']),
-                            'labelMask' => intval($contact['labelMask']),
-                            'inWatchlist' => (strval($rowset['name']) == 'contactList') ?
-                                (strval($contact['inWatchlist']) == 'True') : null
-                        ]);
+                        $this->{$rowset['name']}[] = new ContactType(
+                            $contact,
+                            [
+                                'contactID, standing, contactTypeID, labelMask' => 'int',
+                                'contactName' => 'str',
+                                'inWatchlist' => 'bool'
+                            ]
+                        );
                     }
                     break;
 
