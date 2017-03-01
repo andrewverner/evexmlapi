@@ -274,17 +274,74 @@ Returns characters contact list
 
 | property  | description | type |
 | --- | --- | --- |
-| contactList | Personal contact list | Array |
-| corporateContactList | Corporation contact list | Array |
-| allianceContactList | Alliance contact list | Array |
+| contactList | Personal contact list | Array of `ContactType` |
+| corporateContactList | Corporation contact list | Array of `ContactType` |
+| allianceContactList | Alliance contact list | Array of `ContactType` |
 
-See `ContactType` description.
+**`ContactType`**
+
+| property  | description | type |
+| --- | --- | --- |
+| contactID | Integer | The characterID/corporationID of the character/agent/corporation in your contact list |
+| contactName | String | The name of the contact. For deleted entities this field is empty |
+| standing | Integer | The standings you set for this contact |
+| contactTypeID | Integer | Determines the contact type: 2 = Corporation, 1373-1386 = Character, 16159 = Alliance |
+| inWatchlist | Boolean | Has this entry been added to the character's watchlist? Valid for contactTypeID 1373 to 1386 only |
 
 ####Character::contracts(): array
 
 Returns an array of characters contracts. See `Contract` instance description.
 
 `$contracts = $character->contracts();`
+
+**`Contract`**
+
+| property  | description | type |
+| --- | --- | --- |
+| contractID | Integer | Unique Identifier for the contract |
+| issuerID | Integer | Character ID for the issuer |
+| issuerCorpID | Integer | Characters corporation ID for the issuer |
+| assigneeID | Integer | ID to whom the contract is assigned, can be corporation or character ID |
+| acceptorID | Integer | Who will accept the contract. If assigneeID is same as acceptorID then CharacterID else CorporationID (The contract accepted by the corporation) |
+| startStationID | Integer | Start station ID (for Couriers contract) |
+| endStationID | Integer | End station ID (for Couriers contract) |
+| type | String | Type of the contract (ItemExchange, Courier, Loan or Auction) |
+| status | String |	Status of the the contract (Outstanding, Deleted, Completed, Failed, CompletedByIssuer, CompletedByContractor, Cancelled, Rejected, Reversed or InProgress) |
+| title	| String | Title of the contract |
+| forCorp | Boolean | 1 if the contract was issued on behalf of the issuer's corporation, 0 otherwise |
+| availability | String | Public or Private |
+| dateIssued | DateTime | Сreation date of the contract |
+| dateExpired | DateTime | Expiration date of the contract |
+| dateAccepted | DateTime | Date of confirmation of contract |
+| numDays | Integer | Number of days to perform the contract |
+| dateCompleted | DateTime | Date of completed of contract |
+| price	| Float | Price of contract (for ItemsExchange and Auctions) |
+| reward | Float | Remuneration for contract (for Couriers only) |
+| collateral | Float | Collateral price (for Couriers only) |
+| buyout | Float | Buyout price (for Auctions only) |
+| volume | Float | Volume of items in the contract |
+| bids | Array of `BidType` | Volume of items in the contract |
+| items | Array of `ContractItem` | Volume of items in the contract |
+
+**`BidType`**
+
+| property  | description | type |
+| --- | --- | --- |
+| bidID | Integer | Unique ID for the bid |
+| contractID | Integer | Unique ID for the contract |
+| bidderID | Integer | Character ID of the bidder |
+| dateBid | DateTime | Date bid was placed |
+| amount | Float | The amount bid |
+
+**`ContractItem`**
+
+| property  | description | type |
+| --- | --- | --- |
+| recordID | Integer | Unique ID for the item |
+| typeID | Integer | Type ID for item |
+| quantity | Integer | Number of items in the stack |
+| singleton | Integer | T1 if this is a singleton item, 0 if not |
+| included | Integer | 1 if the contract issuer has submitted this item with the contract, 0 if the issuer is asking for this item in the contract |
 
 ####Character::facWarStats(): FacWarStats
 
