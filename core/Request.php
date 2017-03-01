@@ -33,7 +33,7 @@ abstract class Request
         curl_setopt($ch, CURLOPT_POST, false);
         curl_setopt($ch, CURLOPT_TIMEOUT, 30);
         $result = curl_exec($ch);
-        //print_r(htmlspecialchars($result));
+        print_r(htmlspecialchars($result));
         if (curl_errno($ch)) {
             throw new APIException('An cURL error occurred while sending a request: ' . curl_error($ch));
         } else {

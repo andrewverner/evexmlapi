@@ -17,7 +17,6 @@ spl_autoload_register(function ($className) {
         foreach (['account', 'character', 'core', 'core/types', 'core/components', 'corporation', 'eve', 'map'] as $dir) {
             if (file_exists("{$dir}/{$className}.php")) {
                 require_once "{$dir}/{$className}.php";
-                break;
             }
         }
     }
@@ -25,10 +24,10 @@ spl_autoload_register(function ($className) {
 
 
 $api = new \EveXMLAPI\API();
-/*$account = $api->account(3782616,'ZU78sX2nA41yQJZLTiyiFzJTAs71MvoY9jm2DmIU0d7ABrttO9vBpF3Qv1QYElU0');
-$t = $account->characters();*/
+$account = $api->account(3787235,'KAcD1yK2wrH5UjZ3EtnNtMutyjAKcHgSecfmR9hISQcW7gGoHL9j8g01sBBtcDuN');
+//print_r($account->characters());
 
-$character = $api->character(3782616, 'ZU78sX2nA41yQJZLTiyiFzJTAs71MvoY9jm2DmIU0d7ABrttO9vBpF3Qv1QYElU0', 656916134);
+$character = $api->character(3782616, 'ZU78sX2nA41yQJZLTiyiFzJTAs71MvoY9jm2DmIU0d7ABrttO9vBpF3Qv1QYElU0', 523375194);
 //print_r($character->assets(new LocationSorter()));
 //print_r($character->blueprints(new LocationSorter()));
 //print_r($character->bookmarks(new LocationSorter()));
@@ -53,3 +52,11 @@ $character = $api->character(3782616, 'ZU78sX2nA41yQJZLTiyiFzJTAs71MvoY9jm2DmIU0
 //print_r($character->standings());
 //print_r($character->walletJournal());
 //print_r($character->walletTransactions());
+
+$corporation = $api->corporation(6038178, '2OoSzgLgyniSeXwLQbkdi3V6z8SCv6gdbuswZhKCTlhlpRKnkTD0Gwq55lirc9Nr', 98482170);
+//print_r($corporation->balance(523375194));
+//print_r($corporation->assets(new LocationSorter()));
+//print_r($corporation->blueprints(new LocationSorter()));
+//print_r($corporation->bookmarks(new LocationSorter()));
+//print_r($corporation->contacts());
+//print_r($corporation->containerLog());

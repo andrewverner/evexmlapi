@@ -12,6 +12,8 @@ namespace EveXMLAPI;
 use EveXMLAPI\Account\Account;
 use EveXMLAPI\Character\Character;
 use EveXMLAPI\Core\Key;
+use EveXMLAPI\Corporation\Corporation;
+use EveXMLAPI\Corporation\CorporationKey;
 
 class API
 {
@@ -25,5 +27,10 @@ class API
     public function character($keyID, $vCode, $characterID)
     {
         return new Character(new Key($keyID, $vCode), $characterID);
+    }
+
+    public function corporation($keyID, $vCode, $corporationID)
+    {
+        return new Corporation(new CorporationKey($keyID, $vCode, $corporationID));
     }
 }
