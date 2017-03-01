@@ -163,13 +163,13 @@ Return common character information
 
 Returns an array of characters chat channels. See `ChatChannel` description.
 
-`$chats = $character->chats()`
+`$chats = $character->chats();`
 
 ####Character::contacts(): ContactList
 
 Returns characters contact list
 
-`$chats = $character->contacts()`
+`$chats = $character->contacts();`
 
 | variable  | description | type |
 | --- | --- | --- |
@@ -178,4 +178,43 @@ Returns characters contact list
 | allianceContactList | Alliance contact list | Array |
 
 See `ContactType` description.
+
+####Character::contracts(): array
+
+Returns an array of characters contracts. See `Contract` instance description.
+
+`$contracts = $character->contracts();`
+
+####Character::facWarStats(): FacWarStats
+
+Returns faction warfare information for characters enrolled in faction warfare.
+
+`$stats = $character->facWarStats();`
+
+| variable  | description | type |
+| --- | --- | --- |
+| factionID | ID number of the faction | Integer |
+| factionName | Name of the faction | String |
+| enlisted | Date character enlisted in the faction | DateTime |
+| currentRank | Characters current faction rank | Integer |
+| highestRank | Characters highest faction rank | Integer |
+| killsYesterday | Number of ships character destroyed yesterday | Integer |
+| killsLastWeek | Number of ships character destroyed last week | Integer |
+| killsTotal | Number of total ships character destroyed | Integer |
+| victoryPointsYesterday | Number of victory points character acquired yesterday | Integer |
+| victoryPointsLastWeek | Number of victory points character acquired last week | Integer |
+| victoryPointsTotal | Number of total victory points character acquired | Integer |
+
+####Character::industryJobs(): array
+
+Retrieve an array of unfinished character industry jobs. See `IndustryJob` instance description.
+
+`$jobs = $character->industryJobs();`
+
+####Character::industryJobsHistory(): array
+
+Retrieve an array of finished character industry jobs. See `IndustryJob` instance description.
+
+`$jobs = $character->industryJobsHistory();`
+
 
