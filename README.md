@@ -217,4 +217,8 @@ Retrieve an array of finished character industry jobs. See `IndustryJob` instanc
 
 `$jobs = $character->industryJobsHistory();`
 
+####Character::industryJobsHistory(): array
 
+Retrieve a list of character kills and deaths. See `KillMail` instance description.
+
+`$kills = $character->killMails(50);`
