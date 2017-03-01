@@ -14,13 +14,19 @@ Create an account object
 
 Example: `$account = $api->account(5421517,'H8dHemz5P1yQJZLTiyiFzJTAs71MvoY9jm2DmIU0d7ABrttO9vBpF3Qv5Drf4N0');`
 
+| function | description |
+| --- | --- |
+| status() | Information about a player’s EVE account like creation time, minutes spent in game etc |
+| keyInfo() | Specifies the access rights of an API key |
+| characters() | Lists all characters included in this API key |
+
 ####Account::status(): AccountStatus
 
 `$status = $account->status();`
 
 Returns an information about user account:
 
-| variable  | description | type |
+| property  | description | type |
 | --- | --- | --- |
 | paidUntil | Paid until date | DateTime |
 | createDate | Account create date | DateTime |
@@ -33,7 +39,7 @@ Returns an information about user account:
 
 Returns an information about API key:
 
-| variable  | description | type |
+| property  | description | type |
 | --- | --- | --- |
 | accessMask | Access mask of the key | Integer |
 | expires | Expiration date | DateTime |
@@ -87,7 +93,7 @@ Returns a balance of the character
 
 `$balanceInstance = $character->balance();`
 
-| variable  | description | type |
+| property  | description | type |
 | --- | --- | --- |
 | balance | Character balance | Integer |
 
@@ -121,15 +127,40 @@ foreach ($assets as $locationID => $assetList) {
 
 In that case, you'll get an array `$locationID => $assetList`, where `$assesList` is an array `$index => $asset`.
 
+| | **`AssetType` instance** | |
+| --- | --- | --- |
+| property | type | description |
+| itemID | Integer | Unique ID for this item. The ID of an item is stable if that item is not repackaged, stacked, detached from a stack, assembled, or otherwise altered. If an item is changed in one of these ways, then the ID will also change |
+| locationID | Integer | References a solar system or station. Note that in the nested XML response this column is not present in the sub-asset lists, as those share the locationID of their parent node. Example: a module in a container in a ship in a station.. Whereas the flat XML returns a locationID for each item |
+| typeID | Integer | The type of this item |
+| quantity | Integer | How many items are in this stack |
+| flag | Integer | Indicates something about this item's storage location. The flag is used to differentiate between hangar divisions, drone bay, fitting location, and similar. Please see the Inventory Flags documentation |
+| singleton | Boolean | If True (1), indicates that this item is a singleton. This means that the item is not packaged |
+| rawQuantity | Integer | Items in the AssetList (and ContractItems) now include a rawQuantity attribute if the quantity in the DB is negative |
+| nested | Array | Array of nested items |
+
 ####Character::blueprints([Sorter $sorter = null]): array
 
-Returns an array of blueprints owned by a character. See `BlueprintType` description.
+Returns an array of blueprints owned by a character.
 
 ```
 $blueprints = $character->blueprints();
 //or, if you want to get an array, that sorted by locationID
 $blueprints = $character->blueprints(new LocationSorter());
 ```
+
+| | **`BlueprintType`** | |
+| --- | --- | --- |
+| property | type | description |
+| itemID | Integer | Unique ID for this item. The ID of an item is stable if that item is not repackaged, stacked, detached from a stack, assembled, or otherwise altered. If an item is changed in one of these ways, then the ID will also change |
+| locationID | Integer | References a solar system, station or itemID if this blueprint is located within a container. If an itemID the Character - AssetList API must be queried to find the container using the itemID, from which the correct location of the Blueprint can be derived |
+| typeID | Integer | The type of this item |
+| typeName | String | The name of this item |
+| quantity | Integer | Typically will be -1 or -2 designating a singleton item, where -1 is an original and -2 is a copy. It can be a positive integer if it is a stack of blueprint originals fresh from the market (no activities performed on them yet) |
+| flagID | Integer | Indicates something about this item's storage location. The flag is used to differentiate between hangar divisions, drone bay, fitting location, and similar |
+| timeEfficiency | Integer | Time Efficiency Level of the blueprint, can be any even integer between 0 and 20 |
+| materialEfficiency | Integer | Material Efficiency Level of the blueprint, can be any integer between 0 and 10 |
+| runs | Integer | Number of runs remaining if the blueprint is a copy, -1 if it is an original |
 
 ####Character::bookmarks([Sorter $sorter = null]): array
 
@@ -141,13 +172,28 @@ $bookamrks = $character->bookmarks();
 $bookamrks = $character->bookmarks(new LocationSorter());
 ```
 
+| | **`BookmarkType`** | |
+| --- | --- | --- |
+| property | type | description |
+| bookmarkID | Integer | Unique bookmark ID |
+| creatorID | Integer | Bookmark creator ID. Can be character or corporation ID |
+| created | DateTime | Date and time when bookmark was created |
+| itemID | Integer | Item ID of the item to which the bookmark refers, or 0 if the bookmark refers to a location |
+| typeID | Integer | Type ID of the item to which the bookmark refers (even if the bookmark refers to a location instead of an item) |
+| locationID | Integer | Location ID of the solar sytem to which this bookmark refers |
+| x | Float | X location of bookmark (relative to system sun) if this bookmark does not refer to an item |
+| y	| Float | Y location of bookmark (relative to system sun) if this bookmark does not refer to an item |
+| z | Float | Z location of bookmark (relative to system sun) if this bookmark does not refer to an item |
+| memo | String | Bookmark description (owner specified) |
+| note | String | Bookmark annotation (owner specified) |
+
 ####Character::sheet(): Sheet
 
 Return common character information
 
 `$sheet = $character->sheet();`
 
-| variable  | description | type |
+| property  | description | type |
 | --- | --- | --- |
 | name | Character name | String |
 | homeStationID | ID for station where clone will spawn on demise | Integer |
@@ -198,7 +244,7 @@ Returns characters contact list
 
 `$chats = $character->contacts();`
 
-| variable  | description | type |
+| property  | description | type |
 | --- | --- | --- |
 | contactList | Personal contact list | Array |
 | corporateContactList | Corporation contact list | Array |
@@ -218,7 +264,7 @@ Returns faction warfare information for characters enrolled in faction warfare.
 
 `$stats = $character->facWarStats();`
 
-| variable  | description | type |
+| property  | description | type |
 | --- | --- | --- |
 | factionID | ID number of the faction | Integer |
 | factionName | Name of the faction | String |
