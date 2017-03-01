@@ -127,9 +127,10 @@ foreach ($assets as $locationID => $assetList) {
 
 In that case, you'll get an array `$locationID => $assetList`, where `$assesList` is an array `$index => $asset`.
 
-| | **`AssetType` instance** | |
-| --- | --- | --- |
+**`AssetType` instance**
+
 | property | type | description |
+| --- | --- | --- |
 | itemID | Integer | Unique ID for this item. The ID of an item is stable if that item is not repackaged, stacked, detached from a stack, assembled, or otherwise altered. If an item is changed in one of these ways, then the ID will also change |
 | locationID | Integer | References a solar system or station. Note that in the nested XML response this column is not present in the sub-asset lists, as those share the locationID of their parent node. Example: a module in a container in a ship in a station.. Whereas the flat XML returns a locationID for each item |
 | typeID | Integer | The type of this item |
@@ -149,9 +150,10 @@ $blueprints = $character->blueprints();
 $blueprints = $character->blueprints(new LocationSorter());
 ```
 
-| | **`BlueprintType`** | |
-| --- | --- | --- |
+**`BlueprintType`**
+
 | property | type | description |
+| --- | --- | --- |
 | itemID | Integer | Unique ID for this item. The ID of an item is stable if that item is not repackaged, stacked, detached from a stack, assembled, or otherwise altered. If an item is changed in one of these ways, then the ID will also change |
 | locationID | Integer | References a solar system, station or itemID if this blueprint is located within a container. If an itemID the Character - AssetList API must be queried to find the container using the itemID, from which the correct location of the Blueprint can be derived |
 | typeID | Integer | The type of this item |
