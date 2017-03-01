@@ -222,3 +222,10 @@ Retrieve an array of finished character industry jobs. See `IndustryJob` instanc
 Retrieve a list of character kills and deaths. See `KillMail` instance description.
 
 `$kills = $character->killMails(50);`
+
+####Character::locations(): array
+
+Retrieve location and name of specific items that belong to the character / corporation of the api key. This call can be
+used to retrieve the player-set name of containers and ships. See `LocationType` instance description.
+
+`$kills = $character->killMails(50);`
