@@ -40,4 +40,16 @@ $character = $api->character(3782616, 'ZU78sX2nA41yQJZLTiyiFzJTAs71MvoY9jm2DmIU0
 //print_r($character->industryJobs());
 //print_r($character->industryJobsHistory());
 //print_r($character->killMails(50));
-print_r($character->locations());
+//print_r($character->locations());
+//print_r($character->mails());
+//print_r($character->marketOrders());
+//print_r($character->medals());
+//print_r($character->notifications());
+//print_r($character->planetaryColonies());
+//print_r($character->research());
+//print_r($character->skillInTraining());
+//print_r($character->skillQueue());
+//print_r($character->skills());
+//print_r($character->standings());
+//print_r($character->walletJournal());
+//print_r($character->walletTransactions());

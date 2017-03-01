@@ -27,6 +27,18 @@ use EveXMLAPI\Core\Key;
  * @method industryJobsHistory()
  * @method killMails($count = 25)
  * @method locations()
+ * @method mails()
+ * @method marketOrders()
+ * @method medals()
+ * @method notifications()
+ * @method planetaryColonies()
+ * @method research()
+ * @method skillInTraining()
+ * @method skillQueue()
+ * @method skills()
+ * @method standings()
+ * @method walletJournal()
+ * @method walletTransactions()
  */
 
 class Character
@@ -104,6 +116,54 @@ class Character
 
             case 'locations':
                 return (new Locations($this->key))->list;
+                break;
+
+            case 'mails':
+                return (new MailMessages($this->key))->list;
+                break;
+
+            case 'marketOrders':
+                return (new MarketOrders($this->key))->list;
+                break;
+
+            case 'medals':
+                return new Medals($this->key);
+                break;
+
+            case 'notifications':
+                return (new Notifications($this->key))->list;
+                break;
+
+            case 'planetaryColonies':
+                return (new PlanetaryColonies($this->key))->list;
+                break;
+
+            case 'research':
+                return (new Researches($this->key))->list;
+                break;
+
+            case 'skillInTraining':
+                return new SkillInTraining($this->key);
+                break;
+
+            case 'skillQueue':
+                return (new SkillQueue($this->key))->list;
+                break;
+
+            case 'skills':
+                return (new Skills($this->key))->list;
+                break;
+
+            case 'standings':
+                return new Standings($this->key);
+                break;
+
+            case 'walletJournal':
+                return (new WalletJournal($this->key))->list;
+                break;
+
+            case 'walletTransactions':
+                return (new WalletTransactions($this->key))->list;
                 break;
 
             default:

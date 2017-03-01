@@ -38,7 +38,7 @@ abstract class Request
             throw new APIException('An cURL error occurred while sending a request: ' . curl_error($ch));
         } else {
             try {
-                $xml = new \SimpleXMLElement($result);
+                $xml = simplexml_load_string($result, 'SimpleXMLElement', LIBXML_NOCDATA);
                 if (isset($xml->error)) return false; else return $this->parse($xml->result);
             } catch (\Exception $exception) {
 
