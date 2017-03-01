@@ -9,13 +9,13 @@
 
 namespace EveXMLAPI\Character;
 
-class ContractKey extends CharacterKey
+class KillMailsKey extends CharacterKey
 {
-    public $contractID;
+    public $rowCount;
 
-    public function __construct($keyID, $vCode, $characterID, $contractID)
+    public function __construct($keyID, $vCode, $characterID, $rowCount)
     {
-        $this->contractID = $contractID;
+        $this->rowCount = $rowCount;
         parent::__construct($keyID, $vCode, $characterID);
     }
 
@@ -24,7 +24,8 @@ class ContractKey extends CharacterKey
         return '?' . http_build_query([
                 'keyID'         => $this->keyID,
                 'vCode'         => $this->vCode,
-                'characterID'   => $this->characterID
+                'characterID'   => $this->characterID,
+                'rowCount'      => $this->rowCount
             ]);
     }
 }

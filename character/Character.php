@@ -25,6 +25,7 @@ use EveXMLAPI\Core\Key;
  * @method facWarStats()
  * @method industryJobs()
  * @method industryJobsHistory()
+ * @method killMails($count = 25)
  */
 
 class Character
@@ -94,6 +95,10 @@ class Character
 
             case 'industryJobsHistory':
                 return (new IndustryJobsHistory($this->key))->list;
+                break;
+
+            case 'killMails':
+                return (new KillMails($this->key, isset($arguments[0]) ? $arguments[0] : 25))->list;
                 break;
 
             default:

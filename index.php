@@ -39,3 +39,4 @@ $character = $api->character(3782616, 'ZU78sX2nA41yQJZLTiyiFzJTAs71MvoY9jm2DmIU0
 //print_r($character->facWarStats());
 //print_r($character->industryJobs());
 //print_r($character->industryJobsHistory());
+print_r($character->killMails(50));

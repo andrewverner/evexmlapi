@@ -10,7 +10,7 @@ namespace EveXMLAPI\Types;
 
 class Type
 {
-    public function __construct($data = [], $behaviour = [])
+    public function __construct($data, $behaviour = [])
     {
         $behaviour = $this->parseBehaviour($behaviour);
         if (!empty($data)) {
