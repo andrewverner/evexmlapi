@@ -241,6 +241,31 @@ Returns an array of characters chat channels. See `ChatChannel` description.
 
 `$chats = $character->chats();`
 
+**`ChatChannel`**
+
+| property | type | description |
+| --- | --- | --- |
+| channelID | Integer | Unique channel ID. Always negative for player-created channels. Permanent (CCP created) channels have a positive ID, but don't appear in the API |
+| ownerID | Integer | Channel owner ID |
+| ownerName | String | Channel owner name |
+| displayName | String | Displayed name of channel |
+| comparisonKey | String | Normalized, unique string used to compare channel names |
+| hasPassword | Boolean | If true, then this is a password protected channel |
+| motd | String | Current channel message of the day |
+| allowed | Array of `AccessorType` | List of allowed channel member |
+| operators | Array of `AccessorType` | List of channel operators |
+| blocked | Array of `AccessorType` | List of blocked channel member |
+| muted | Array of `AccessorType` | List of muted channel member |
+
+**`AccessorType`**
+
+| property | type | description |
+| --- | --- | --- |
+| accessorID | Integer | Character ID |
+| accessorName | String | Character name |
+| untilWhen | DateTime | Time at which accessor will no longer be blocked or muted (only for blocked or muted characters, **null** otherwise) |
+| reason | String | Reason accessor is muted or blocked (only for blocked or muted characters, **null** otherwise) |
+
 ####Character::contacts(): ContactList
 
 Returns characters contact list
