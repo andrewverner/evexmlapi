@@ -42,7 +42,7 @@ Returns an information about API key:
 
 `$characters = $account->characters();`
 
-Returns an array of `Character` instances. See `Character` instance description
+Returns an array of `Character` instances.
 
 ###Character
 
@@ -53,6 +53,33 @@ If you have an ID of a character, than you can create a `Character` instance dir
 
 Example:
 `$character = $api->character(5421517,'H8dHemz5P1yQJZLTiyiFzJTAs71MvoY9jm2DmIU0d7ABrttO9vBpF3Qv5Drf4N0', 782653746);`
+
+| scope | property | type | description |
+| --- | --- | --- | --- |
+| **private** | key | CharacterKey | Character API key instance |
+| public | name | String | Character name |
+| public | corporationName | String | Characters corporation name |
+| public | corporationID | Integer | Character corporation ID |
+| public | allianceName | String | Characters alliance name |
+| public | allianceID | Integer | Characters alliance ID |
+| public | factionName | String | Characters faction name |
+| public | factionID | Integer | Characters faction ID |
+
+| function | description |
+| --- | --- |
+| balance() | Retrieve character account balance |
+| assets() | Lists everything a character owns |
+| blueprints() | Lists blueprints in characters inventory |
+| bookmarks() | Retrieve character Bookmarks |
+| sheet() | Character, skills and roles information |
+| chats() | Retrieve character Chat Channels |
+| contacts() | Lists the character’s personal, corporation, and alliance contacts |
+| contracts() | Returns available contracts to character |
+| facWarStats() | Returns faction warfare information for characters enrolled in faction warfare |
+| industryJobs() | Retrieve unfinished character industry jobs |
+| industryJobsHistory() | Retrieve finished character industry jobs |
+| killMails() | Retrieve a list of character kills and deaths |
+| locations() | Retrieve location and name of specific items that belong to the character / corporation of the api key. This call can be used to retrieve the player-set name of containers and ships |
 
 ####Character::balance(): AccountBalance
 
