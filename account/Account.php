@@ -17,6 +17,7 @@ use EveXMLAPI\Core\Key;
  *
  * @method status()
  * @method keyInfo()
+ * @method keyCalls()
  * @method characters()
  */
 
@@ -38,6 +39,10 @@ class Account
 
             case 'keyInfo':
                 return new APIKeyInfo($this->key);
+                break;
+
+            case 'keyCalls':
+                return (new KeyValidator($this->key, new APIKeyInfo($this->key)))->list;
                 break;
 
             case 'characters':

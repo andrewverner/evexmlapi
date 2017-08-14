@@ -18,6 +18,7 @@ Example: `$account = $api->account(5421517,'H8dHemz5P1yQJZLTiyiFzJTAs71MvoY9jm2D
 | --- | --- |
 | status() | Information about a player’s EVE account like creation time, minutes spent in game etc |
 | keyInfo() | Specifies the access rights of an API key |
+| keyCalls() | Returns an array of `Call` instances with additional property `available` |
 | characters() | Lists all characters included in this API key |
 
 ####Account::status(): AccountStatus
@@ -43,6 +44,21 @@ Returns an information about API key:
 | --- | --- | --- |
 | accessMask | Access mask of the key | Integer |
 | expires | Expiration date | DateTime |
+
+####Account::keyCalls(): array
+
+`$calls = $account->keyCalls();`
+
+Returns an array of `Call` instances with additional property `available`:
+
+| property  | description | type |
+| --- | --- | --- |
+| accessMask | Access mask of the call | Integer |
+| type | Call type (`Character`, `Corporation`, etc) | String |
+| name | Name of the call | String |
+| groupID | ID of a group (see original documentation) | Integer |
+| description | Short call description | String |
+| available | Shows whether the call is available for this key or not | Boolean |
 
 ####Account::characters(): array
 
